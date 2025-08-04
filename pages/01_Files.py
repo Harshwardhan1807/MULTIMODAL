@@ -2,13 +2,10 @@ import streamlit as st
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from PyPDF2 import PdfReader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.question_answering import load_qa_chain
 from PyPDF2 import PdfReader
 from docx import Document as DocxReader
 from pptx import Presentation
 from dotenv import load_dotenv
-from langchain.schema import Document
 from langchain_pinecone import PineconeVectorStore
 import os
 from langchain import hub
@@ -17,12 +14,6 @@ from langchain.chains.retrieval import create_retrieval_chain
 from pinecone import Pinecone
 load_dotenv()
 os.environ["ALLOW_RESET"] = "TRUE"
-import fitz
-from PIL import Image
-import tempfile
-import easyocr
-import numpy as np
-from pdf2image import convert_from_bytes
 
 
 def get_text(uploaded_files):
