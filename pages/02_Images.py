@@ -52,7 +52,11 @@ def main():
             st.error("Please upload an image first")
             return
         with st.spinner("Processing..."):
+            st.image(file)
             text = get_text(file)
+            if text.strip() == "" or len(text) < 10:
+                st.error("No text found in the image")
+                return
             text_chunks = get_text_chunks(text)
             vstore = get_vector_store(text_chunks)
             st.session_state.vstore = vstore
