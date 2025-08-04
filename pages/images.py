@@ -15,7 +15,7 @@ st.title("Images")
 
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
 
-if uploaded_file is not None:
+if st.button("Process"):
     image = Image.open(uploaded_file)
     image_np = np.array(image)
 
