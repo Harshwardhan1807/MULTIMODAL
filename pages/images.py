@@ -2,7 +2,7 @@ import easyocr
 from PIL import Image
 import numpy as np
 import re
-reader = easyocr.Reader(['en'])
+reader = easyocr.Reader(['en'], gpu=False)
 
 import streamlit as st
 
